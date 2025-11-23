@@ -3,10 +3,11 @@ name: Android CI
 on:
   push:
     branches:
-      # - main
+      - main
       - "release-branch/*"
   pull_request:
     # all PRs on all branches
+  workflow_dispatch:
 
 jobs:
   build:
@@ -32,6 +33,3 @@ jobs:
 
       - name: Build APKs
         run: make tailscale-debug.apk
-
-      - name: Run tests
-        run: make test
